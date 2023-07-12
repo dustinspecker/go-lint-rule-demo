@@ -6,7 +6,8 @@
 
 ## Usage
 
-1. `go run ./cmd/linter/main.go ./...`
+1. `go build ./cmd/...`
+1. `./linter ./...`
 
 ## License
 MIT
