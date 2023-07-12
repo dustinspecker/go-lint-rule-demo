@@ -36,6 +36,17 @@ func noFmtPrintfRun(pass *analysis.Pass) (interface{}, error) {
 					Pos:     node.Pos(),
 					End:     node.End(),
 					Message: "Don't use fmt.Printf",
+					SuggestedFixes: []analysis.SuggestedFix{
+						{
+							TextEdits: []analysis.TextEdit{
+								{
+									Pos:     node.Pos(),
+									End:     callExpr.Lparen,
+									NewText: []byte("log.Printf"),
+								},
+							},
+						},
+					},
 				})
 			}
 
